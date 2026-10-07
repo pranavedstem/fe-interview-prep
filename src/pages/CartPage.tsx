@@ -1,19 +1,37 @@
-import FeatureStub from '@/components/FeatureStub';
+import Cart from '@/features/cart/Cart';
+import ProductList from '@/features/cart/ProductList';
+import { useProducts } from '@/features/cart/useProducts';
+import { useCartStore } from '@/features/cart/store';
 
 export default function CartPage() {
+  const products = useProducts();
+  const addItem = useCartStore((state) => state.addItem);
+
   return (
-    <FeatureStub
-      question={1}
-      title="Shopping Cart"
-      branch="feature/q1-cart"
-      brief="A shopping cart with quantity controls and a live total."
-      goals={[
-        'List cart line items with name, unit price and quantity',
-        'Increment / decrement quantity, and remove a line',
-        'Prevent quantity dropping below one (or remove at zero)',
-        'Show a running subtotal and total that update as quantities change',
-        'Tests for the quantity and total logic',
-      ]}
-    />
+    <section>
+      <h1 className="mb-6 text-2xl font-bold">Shopping Cart</h1>
+      <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+        <div>
+          <h2 className="mb-3 text-sm font-semibold tracking-wide text-slate-500 uppercase">
+            Products
+          </h2>
+          {products.status === 'loading' && <p className="text-slate-500">Loading products…</p>}
+          {products.status === 'error' && (
+            <p className="rounded border border-red-200 bg-red-50 p-4 text-red-700">
+              {products.message}
+            </p>
+          )}
+          {products.status === 'ready' && (
+            <ProductList products={products.products} onAdd={addItem} />
+          )}
+        </div>
+        <div>
+          <h2 className="mb-3 text-sm font-semibold tracking-wide text-slate-500 uppercase">
+            Cart
+          </h2>
+          <Cart />
+        </div>
+      </div>
+    </section>
   );
 }
