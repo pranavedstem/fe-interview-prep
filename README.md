@@ -32,7 +32,19 @@ question (router, state, forms, styling) are used freely.
 | 4   | `/dashboard` | Live dashboard: widgets poll every 5s, pause on hidden tab, hand-drawn SVG chart           | `feature/q4-dashboard` |
 | 5   | `/comments`  | Comments with offline support: optimistic posts, ordered offline queue, idempotent retries | `feature/q5-comments`  |
 
-On `main` each route renders a brief placeholder; the real implementation lands on its feature branch.
+All five features are merged into `main`; each was built on its own branch and shipped as a single reviewed pull request.
+
+## Pull requests
+
+One branch → one PR → one merge, in order Q1 → Q5:
+
+| Q   | PR                                                               | Closes | Branch                 |
+| --- | ---------------------------------------------------------------- | ------ | ---------------------- |
+| 1   | [#6](https://github.com/pranavedstem/fe-interview-prep/pull/6)   | #1     | `feature/q1-cart`      |
+| 2   | [#7](https://github.com/pranavedstem/fe-interview-prep/pull/7)   | #2     | `feature/q2-feed`      |
+| 3   | [#8](https://github.com/pranavedstem/fe-interview-prep/pull/8)   | #3     | `feature/q3-kanban`    |
+| 4   | [#9](https://github.com/pranavedstem/fe-interview-prep/pull/9)   | #4     | `feature/q4-dashboard` |
+| 5   | [#10](https://github.com/pranavedstem/fe-interview-prep/pull/10) | #5     | `feature/q5-comments`  |
 
 ## Getting started
 
