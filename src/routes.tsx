@@ -2,6 +2,7 @@ import type { ComponentType } from 'react';
 import HomePage from '@/pages/HomePage';
 import CartPage from '@/pages/CartPage';
 import FeedPage from '@/pages/FeedPage';
+import PostDetailPage from '@/pages/PostDetailPage';
 import KanbanPage from '@/pages/KanbanPage';
 import DashboardPage from '@/pages/DashboardPage';
 import CommentsPage from '@/pages/CommentsPage';
@@ -15,6 +16,7 @@ export interface AppRoute {
   question: number | null;
   /** The feature branch this route is built on. */
   branch?: string;
+  hidden?: boolean;
   element: ComponentType;
 }
 
@@ -26,6 +28,14 @@ export const routes: AppRoute[] = [
   { path: '/', label: 'Home', question: null, element: HomePage },
   { path: '/cart', label: 'Cart', question: 1, branch: 'feature/q1-cart', element: CartPage },
   { path: '/feed', label: 'Feed', question: 2, branch: 'feature/q2-feed', element: FeedPage },
+  {
+    path: '/feed/:postId',
+    label: 'Feed Post',
+    question: 2,
+    branch: 'feature/q2-feed',
+    hidden: true,
+    element: PostDetailPage,
+  },
   {
     path: '/kanban',
     label: 'Kanban',
