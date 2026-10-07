@@ -7,23 +7,25 @@ function Nav() {
     <header className="border-b border-slate-200 bg-white">
       <nav className="mx-auto flex max-w-5xl items-center gap-1 px-4 py-3">
         <span className="mr-4 font-semibold text-slate-900">FE Interview Prep</span>
-        {routes.map((route) => (
-          <NavLink
-            key={route.path}
-            to={route.path}
-            end={route.path === '/'}
-            className={({ isActive }) =>
-              clsx(
-                'rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
-                isActive
-                  ? 'bg-slate-900 text-white'
-                  : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900',
-              )
-            }
-          >
-            {route.label}
-          </NavLink>
-        ))}
+        {routes
+          .filter((route) => !route.hidden)
+          .map((route) => (
+            <NavLink
+              key={route.path}
+              to={route.path}
+              end={route.path === '/'}
+              className={({ isActive }) =>
+                clsx(
+                  'rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
+                  isActive
+                    ? 'bg-slate-900 text-white'
+                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900',
+                )
+              }
+            >
+              {route.label}
+            </NavLink>
+          ))}
       </nav>
     </header>
   );

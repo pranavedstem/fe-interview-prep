@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { routes } from '@/routes';
 
 export default function HomePage() {
-  const features = routes.filter((route) => route.question !== null);
+  const features = routes.filter((route) => route.question !== null && !route.hidden);
 
   return (
     <section>
