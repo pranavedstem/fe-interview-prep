@@ -24,13 +24,13 @@ question (router, state, forms, styling) are used freely.
 
 ## Features
 
-| Q   | Route        | Feature                                                                          | Branch                 |
-| --- | ------------ | -------------------------------------------------------------------------------- | ---------------------- |
-| 1   | `/cart`      | Shopping cart with quantity controls & live total                                | `feature/q1-cart`      |
-| 2   | `/feed`      | Infinite feed that never fires duplicate page loads                              | `feature/q2-feed`      |
-| 3   | `/kanban`    | Drag-and-drop Kanban board (native DnD)                                          | `feature/q3-kanban`    |
-| 4   | `/dashboard` | Live dashboard: widgets poll every 5s, pause on hidden tab, hand-drawn SVG chart | `feature/q4-dashboard` |
-| 5   | `/comments`  | Nested, editable threaded comments                                               | `feature/q5-comments`  |
+| Q   | Route        | Feature                                                                                    | Branch                 |
+| --- | ------------ | ------------------------------------------------------------------------------------------ | ---------------------- |
+| 1   | `/cart`      | Shopping cart with quantity controls & live total                                          | `feature/q1-cart`      |
+| 2   | `/feed`      | Infinite feed that never fires duplicate page loads                                        | `feature/q2-feed`      |
+| 3   | `/kanban`    | Drag-and-drop Kanban board (native DnD)                                                    | `feature/q3-kanban`    |
+| 4   | `/dashboard` | Live dashboard: widgets poll every 5s, pause on hidden tab, hand-drawn SVG chart           | `feature/q4-dashboard` |
+| 5   | `/comments`  | Comments with offline support: optimistic posts, ordered offline queue, idempotent retries | `feature/q5-comments`  |
 
 On `main` each route renders a brief placeholder; the real implementation lands on its feature branch.
 

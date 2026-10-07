@@ -1,19 +1,14 @@
-import FeatureStub from '@/components/FeatureStub';
+import Comments from '@/features/comments/Comments';
 
 export default function CommentsPage() {
   return (
-    <FeatureStub
-      question={5}
-      title="Threaded Comments"
-      branch="feature/q5-comments"
-      brief="A nested comment thread you can reply to, edit and delete."
-      goals={[
-        'Render comments as an arbitrarily deep tree',
-        'Reply to any comment, adding a child at the right depth',
-        'Edit and delete a comment (deleting prunes its subtree or tombstones it)',
-        'Validated reply/edit form with React Hook Form + Zod',
-        'Tests for the tree insert / update / delete helpers',
-      ]}
-    />
+    <section>
+      <h1 className="mb-6 text-2xl font-bold">Comments</h1>
+      <p className="mb-6 max-w-2xl text-sm text-slate-600">
+        Post a comment and it appears instantly. If the network is slow, flaky, or offline, comments
+        are queued and retried in order until the server confirms them — without ever duplicating.
+      </p>
+      <Comments />
+    </section>
   );
 }
